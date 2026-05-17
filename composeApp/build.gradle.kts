@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.composeCompiler)
 }
 
@@ -32,16 +33,13 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
-            //implementation("io.ktor:ktor-client-okhttp:3.0.0-alpha06")
+            implementation("io.ktor:ktor-client-okhttp:3.0.3")
         }
         commonMain.dependencies {
-            //implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
-            //implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
-            // implementation("com.github.skydoves:landscapist-coil:2.4.0")
-            //implementation(libs.ktor.client.java)
-            //implementation(libs.kotlinx.coroutines.swing)
-            //implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
-            //implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
+
+            implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+            implementation("io.coil-kt.coil3:coil-network-ktor3:3.0.4")
+            implementation("media.kamel:kamel-image:1.0.9")
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
@@ -50,9 +48,6 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-            //implementation("com.google.accompanist:accompanist-coil:0.10.0")
-            //implementation("io.coil-kt.coil3:coil-compose:3.4.0")
-            //implementation("io.coil-kt.coil3:coil-network-ktor:3.4.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -91,4 +86,3 @@ dependencies {
     debugImplementation(libs.compose.uiTooling)
 
 }
-

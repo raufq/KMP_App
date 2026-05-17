@@ -30,6 +30,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -66,8 +70,11 @@ fun App() {
             }
             LazyColumn {
                 items(userList) { user->
-                    ProfileContent(user,Alignment.Start)
-                    ProfilePicture(user,16.dp)
+                    //ProfileContent(user,Alignment.Start)
+                    //ProfilePicture(user,16.dp)
+                   ProfileCard(user,clickAction = {
+                       //showContent = !showContent
+                   })
                 }
             }
         }
@@ -111,29 +118,13 @@ fun ProfilePicture(userProfile: UserProfile, profilePicSize: Dp) {
         ),
         modifier = Modifier.padding(16.dp)
     ) {
-        /*Image(
-            painter = rememberCoilPainter(userProfile.pictureUrl),
-            contentDescription = "",
-            modifier = Modifier.size(profilePicSize),
-            contentScale = ContentScale.Crop
-        )*/
-        /*AsyncImage(
+
+        AsyncImage(
             model = userProfile.pictureUrl,
             contentDescription = "Translated description",
-            modifier = Modifier.size(150.dp)
-        )*/
-
-
-
-
-
-        Image(
-            painter = painterResource(Res.drawable.compose_multiplatform),
-            contentDescription = "Sample icon",
-            modifier = Modifier.size(profilePicSize),
-            colorFilter = ColorFilter.tint(Color.Blue),
-            contentScale = ContentScale.Crop
+            modifier = Modifier.size(profilePicSize)
         )
+
     }
 }
 
