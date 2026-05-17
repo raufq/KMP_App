@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -31,8 +32,16 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
+            //implementation("io.ktor:ktor-client-okhttp:3.0.0-alpha06")
         }
         commonMain.dependencies {
+            //implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
+            //implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
+            // implementation("com.github.skydoves:landscapist-coil:2.4.0")
+            //implementation(libs.ktor.client.java)
+            //implementation(libs.kotlinx.coroutines.swing)
+            //implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
+            //implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
@@ -41,6 +50,9 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            //implementation("com.google.accompanist:accompanist-coil:0.10.0")
+            //implementation("io.coil-kt.coil3:coil-compose:3.4.0")
+            //implementation("io.coil-kt.coil3:coil-network-ktor:3.4.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -77,5 +89,6 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
+
 }
 
